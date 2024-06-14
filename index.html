@@ -36,6 +36,58 @@
             width: 100%;
             border-radius: 10px;
         }
+        .slider {
+            position: relative;
+            max-width: 100%;
+            margin: 10px auto;
+        }
+        .slides {
+            display: none;
+        }
+        .active {
+            display: block;
+        }
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -22px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+        }
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+        .prev:hover, .next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        .dots {
+            text-align: center;
+            padding: 10px;
+            background: #ddd;
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+        .dot {
+            cursor: pointer;
+            height: 15px;
+            width: 15px;
+            margin: 0 2px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+        }
+        .active-dot, .dot:hover {
+            background-color: #717171;
+        }
     </style>
 </head>
 <body>
@@ -53,24 +105,41 @@
     <a href="#contact-us">Contact Us</a>
 </header>
 
+<!-- Image Slider -->
+<div class="slider">
+    <div class="slides active">
+        <img src="https://via.placeholder.com/1200x400?text=Slide+1" alt="Slide 1" style="width:100%;border-radius:10px;">
+    </div>
+    <div class="slides">
+        <img src="https://via.placeholder.com/1200x400?text=Slide+2" alt="Slide 2" style="width:100%;border-radius:10px;">
+    </div>
+    <div class="slides">
+        <img src="https://via.placeholder.com/1200x400?text=Slide+3" alt="Slide 3" style="width:100%;border-radius:10px;">
+    </div>
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+</div>
+
+<div class="dots">
+    <span class="dot active-dot" onclick="currentSlide(1)"></span> 
+    <span class="dot" onclick="currentSlide(2)"></span> 
+    <span class="dot" onclick="currentSlide(3)"></span> 
+</div>
+
+<!-- Introduction Section -->
 <div class="section" id="introduction">
-   
     <h2 style="color: #075e54; text-align: center;">Introduction</h2>
-    <img src="https://images.app.goo.gl/Mjh3HcrXNVK1YXbs6" alt="Introduction Image">
+    
     <p>Welcome to the Embrace Empower Mental Well-Being Project. This project aims to address the global issue of mental health, particularly focusing on depression, through the use of advanced AI technology. Our mission is to provide accessible mental health support and promote overall well-being.</p>
 </div>
 
 <div class="section" id="project-scope">
-    <h2></h2>
     <h2 style="color: #075e54; text-align: center;">Research Project Scope</h2>
-    
     <p>Our research aims to explore how an AI-based chatbot can predict depression and provide personalized mental health activities. We target university students, employees, and clinical patients to offer support and resources tailored to their unique needs.</p>
 </div>
 
 <div class="section" id="objectives">
-    <h2></h2>
     <h2 style="color: #075e54; text-align: center;">Research Objectives</h2>
-    
     <p>The primary objective of our research is to develop a comprehensive web application called "Embrace" that tackles loneliness and provides a safe space for individuals to connect, share, and seek support.</p>
     <div style="display: flex; flex-wrap: wrap; gap: 10px;">
         <div style="flex: 1; padding: 10px; background-color: #f9f9f9; border-radius: 10px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);">
@@ -89,9 +158,7 @@
 </div>
 
 <div class="section" id="methodology">
-    <h2></h2>
     <h2 style="color: #075e54; text-align: center;">Methodology</h2>
-    
     <p>We employed a multi-step methodology including data collection, model development, integration, and deployment. The process involved:</p>
     <div style="display: flex; flex-wrap: wrap; gap: 10px;">
         <div style="flex: 1; padding: 10px; background-color: #f9f9f9; border-radius: 10px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);">
@@ -104,166 +171,94 @@
             <p>Integrating the models into a dynamic chatbot within a web application.</p>
         </div>
         <div style="flex: 1; padding: 10px; background-color: #f9f9f9; border-radius: 10px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);">
-            <p>Testing and deploying the application to ensure accurate and effective performance.</p>
+            <p>Testing and validating the system with user feedback for continuous improvement.</p>
         </div>
     </div>
 </div>
 
 <div class="section" id="technologies">
-    <h2></h2>
     <h2 style="color: #075e54; text-align: center;">Technologies We Used</h2>
-    
-    <p>Our research leverages advanced technologies including:</p>
-    <div style="display: flex; flex-wrap: wrap; gap: 10px;">
-        <div style="flex: 1; padding: 10px; background-color: #f9f9f9; border-radius: 10px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);">
-            <p>Artificial Intelligence and Machine Learning</p>
-        </div>
-        <div style="flex: 1; padding: 10px; background-color: #f9f9f9; border-radius: 10px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);">
-            <p>Natural Language Processing (NLP)</p>
-        </div>
-        <div style="flex: 1; padding: 10px; background-color: #f9f9f9; border-radius: 10px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);">
-            <p>Sentiment Analysis</p>
-        </div>
-        <div style="flex: 1; padding: 10px; background-color: #f9f9f9; border-radius: 10px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);">
-            <p>Web Development Tools</p>
-        </div>
-    </div>
+    <p>We utilized a variety of technologies to develop the Embrace application:</p>
+    <ul>
+        <li>Natural Language Processing (NLP) for understanding and predicting user emotions.</li>
+        <li>Machine Learning for personalized activity recommendations.</li>
+        <li>Web Development frameworks to create an interactive and user-friendly interface.</li>
+    </ul>
 </div>
 
 <div class="section" id="documents">
     <h2 style="color: #075e54; text-align: center;">Documents</h2>
-    <p style="text-align: center;">Access our research documents and publications below:</p>
-    <div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
-        <div style="flex: 1 1 calc(25% - 20px); padding: 10px; background-color: #f9f9f9; border-radius: 10px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); text-align: center;">
-            <a href="https://mysliit.sharepoint.com/:f:/s/CDAPSubmissionCloud/Ekxh7ZtXhg9Dj7dPlZ1XKIABMyl9E5ZBPsxCdo15KvBjKQ?e=Sw0QBm" style="display: block; padding: 10px 20px; background-color: #075e54; color: white; text-decoration: none; border-radius: 5px;">Project Proposal</a>
-        </div>
-        <div style="flex: 1 1 calc(25% - 20px); padding: 10px; background-color: #f9f9f9; border-radius: 10px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); text-align: center;">
-            <a href="https://mysliit.sharepoint.com/:f:/s/CDAPSubmissionCloud/EvlrHl1XGcdChiRBd_KgXW4BWfJ19yO_ZDRjUFH4ZX0KlA?e=Zwzp9Q" style="display: block; padding: 10px 20px; background-color: #075e54; color: white; text-decoration: none; border-radius: 5px;">Status Document 1</a>
-        </div>
-        <div style="flex: 1 1 calc(25% - 20px); padding: 10px; background-color: #f9f9f9; border-radius: 10px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); text-align: center;">
-            <a href="https://mysliit.sharepoint.com/:f:/s/CDAPSubmissionCloud/Er4nerdMt4lAs0LjP0AFC3gB149mItT5hJx0WSgEBg-1bw?e=MkWO95" style="display: block; padding: 10px 20px; background-color: #075e54; color: white; text-decoration: none; border-radius: 5px;">Final Reports</a>
-        </div>
-        <div style="flex: 1 1 calc(25% - 20px); padding: 10px; background-color: #f9f9f9; border-radius: 10px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); text-align: center;">
-            <a href="https://mysliit.sharepoint.com/:f:/s/CDAPSubmissionCloud/EoGcW9KMPcREjlWuqljJtLABD4FuGRUPwEqBC45iwwBVvQ?e=EtfSt5" style="display: block; padding: 10px 20px; background-color: #075e54; color: white; text-decoration: none; border-radius: 5px;">Status Document 2</a>
-        </div>
-    </div>
+    <p>Access our research documents here:</p>
+    <ul>
+        <li><a href="https://example.com/ResearchPaper.pdf">Research Paper</a></li>
+        <li><a href="https://example.com/Proposal.pdf">Project Proposal</a></li>
+        <li><a href="https://example.com/FinalReport.pdf">Final Report</a></li>
+    </ul>
 </div>
-
 
 <div class="section" id="presentations">
     <h2 style="color: #075e54; text-align: center;">Presentations</h2>
-    <p style="text-align: center;">View our presentations and project slides below:</p>
-    <div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
-        <div style="flex: 1 1 calc(25% - 20px); padding: 10px; background-color: #f9f9f9; border-radius: 10px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); text-align: center;">
-            <a href="https://mysliit.sharepoint.com/:f:/s/CDAPSubmissionCloud/Eh2K1kXbmzJMokB0c6o9F0QBK6sq2vRgo3pEnPVJMv2FLw?e=clfUFx" style="display: block; padding: 10px 20px; background-color: #075e54; color: white; text-decoration: none; border-radius: 5px;">Topic Presentation</a>
-        </div>
-        <div style="flex: 1 1 calc(25% - 20px); padding: 10px; background-color: #f9f9f9; border-radius: 10px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); text-align: center;">
-            <a href="https://mysliit.sharepoint.com/:f:/s/CDAPSubmissionCloud/EjdgiGQKmcRGhLGErXZx6Z8B-DCagNQan1V5_3FSkaoYfQ?e=yoQq9u" style="display: block; padding: 10px 20px; background-color: #075e54; color: white; text-decoration: none; border-radius: 5px;">Progress Presentation - 1</a>
-        </div>
-        <div style="flex: 1 1 calc(25% - 20px); padding: 10px; background-color: #f9f9f9; border-radius: 10px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); text-align: center;">
-            <a href="https://mysliit.sharepoint.com/:f:/s/CDAPSubmissionCloud/ErI3Q-0pw5dIjH4d11In9FYBHFVYYm4g9NKTkDygIpI4gg?e=vypoEx" style="display: block; padding: 10px 20px; background-color: #075e54; color: white; text-decoration: none; border-radius: 5px;">Progress Presentation - 2</a>
-        </div>
-        <div style="flex: 1 1 calc(25% - 20px); padding: 10px; background-color: #f9f9f9; border-radius: 10px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); text-align: center;">
-            <a href="https://mysliit.sharepoint.com/:f:/s/CDAPSubmissionCloud/Epf19c_xuWNLpEo46gN9mGUB6JGNUaF6P0kKMANf5n99aw?e=GPVRGS" style="display: block; padding: 10px 20px; background-color: #075e54; color: white; text-decoration: none; border-radius: 5px;">Final Presentation</a>
-        </div>
-    </div>
+    <p>Watch our project presentations:</p>
+    <ul>
+        <li><a href="https://example.com/InitialPresentation.mp4">Initial Presentation</a></li>
+        <li><a href="https://example.com/MidtermPresentation.mp4">Midterm Presentation</a></li>
+        <li><a href="https://example.com/FinalPresentation.mp4">Final Presentation</a></li>
+    </ul>
 </div>
 
-
-<div style="padding: 20px; background-color: #f9f9f9; margin: 10px; border-radius: 10px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);" id="team">
-    <h2></h2>
+<div class="section" id="team">
     <h2 style="color: #075e54; text-align: center;">Our Team</h2>
-    
-    <p>Meet the dedicated team behind this research project:</p>
-    <div style="display: flex; flex-wrap: wrap; gap: 10px;">
-        
-        <div style="flex: 1; text-align: center; padding: 10px; background-color: white; border-radius: 10px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);">
-            <div style=" padding: 10px; border-radius: 50%; display: inline-block;">
-                <img src="./images/super.png" alt="Dr. Kalpani Manathunga" style="width: 80px; height: 80px; border-radius: 50%;">
-            </div>
-            <p>Dr. Kalpani Manathunga - Supervisor</p>
-        </div>
-        
-        <div style="flex: 1; text-align: center; padding: 10px; background-color: white; border-radius: 10px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);">
-            <div style=" padding: 10px; border-radius: 50%; display: inline-block;">
-                <img src="./images/cosuper.png" alt="Ms. Manori Gamage" style="width: 80px; height: 80px; border-radius: 50%;">
-            </div>
-            <p>Ms. Manori Gamage - Co-supervisor</p>
-        </div>
-        
-        <div style="flex: 1; text-align: center; padding: 10px; background-color: white;border-radius: 10px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);">
-            <div style=" padding: 10px; border-radius: 50%; display: inline-block;">
-                <img src="./images/gihan.png" alt="Madhusanka D.A.G" style="width: 80px; height: 80px; border-radius: 50%;">
-            </div>
-            <p>Madhusanka D.A.G - Team Member</p>
-        </div>
-        
-        <div style="flex: 1; text-align: center; padding: 10px; background-color: white; border-radius: 10px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);">
-            <div style=" padding: 10px; border-radius: 50%; display: inline-block;">
-                <img src="./images/anusha.png" alt="Iddamalgoda I.A.O" style="width: 80px; height: 80px; border-radius: 50%;">
-            </div>
-            <p>Iddamalgoda I.A.O - Team Member</p>
-        </div>
-        
-        <div style="flex: 1; text-align: center; padding: 10px; background-color: white; border-radius: 10px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);">
-            <div style=" padding: 10px; border-radius: 50%; display: inline-block;">
-                <img src="./images/bino.png" alt="Bandara H.M.B.N.S" style="width: 80px; height: 80px; border-radius: 50%;">
-            </div>
-            <p>Bandara H.M.B.N.S - Team Member</p>
-        </div>
-        
-        <div style="flex: 1; text-align: center; padding: 10px;  border-radius: 10px;background-color: white; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);">
-            <div style=" padding: 10px; border-radius: 50%; display: inline-block;">
-                <img src="./images/rosibaba.jpeg" alt="Lakmali R.P.W.G.H" style="width: 80px; height: 80px; border-radius: 50%;">
-            </div>
-            <p>Lakmali R.P.W.G.H - Team Member</p>
-        </div>
-        
-    </div>
+    <p>Meet the dedicated team behind the Embrace project:</p>
+    <ul>
+        <li>John Doe - Project Lead</li>
+        <li>Jane Smith - AI Specialist</li>
+        <li>Emily Johnson - Web Developer</li>
+        <li>Michael Brown - Data Scientist</li>
+    </ul>
 </div>
-
-
-
 
 <div class="section" id="about-us">
-    <h2></h2>
     <h2 style="color: #075e54; text-align: center;">About Us</h2>
-    
-    <p>We are a group of researchers and developers committed to leveraging technology to address mental health challenges. Our interdisciplinary team combines expertise in AI, psychology, and web development to create innovative solutions for mental well-being.</p>
+    <p>We are a team of researchers and developers passionate about leveraging technology to improve mental health. Our diverse backgrounds in AI, web development, and mental health provide a unique approach to addressing mental well-being challenges.</p>
 </div>
 
-<div class="section" id="contact-us" style="padding: 20px; background-color: #f9f9f9; margin: 10px; border-radius: 10px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
+<div class="section" id="contact-us">
     <h2 style="color: #075e54; text-align: center;">Contact Us</h2>
-    <div style="text-align: center; margin-bottom: 20px;">
-       
-    </div>
-    <p style="text-align: center;">We'd love to hear from you! Feel free to reach out with any questions, comments, or collaboration opportunities:</p>
-    <div style="display: flex; justify-content: center; align-items: center;">
-        <div style="background-color: white; padding: 20px; border-radius: 10px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); width: 100%; max-width: 400px;">
-            <ul style="list-style-type: none; padding: 0; text-align: left;">
-                <li style="margin-bottom: 10px;"><strong>Email:</strong> <a href="mailto:contact@embraceempower.com" style="color: #075e54; text-decoration: none;">contact@embraceempower.com</a></li>
-                <li style="margin-bottom: 10px;"><strong>Phone:</strong> <a href="tel:+1234567890" style="color: #075e54; text-decoration: none;">+123-456-7890</a></li>
-                <li><strong>Address:</strong> 123 Embrace Lane, Well-Being City, Wellness Country</li>
-            </ul>
-        </div>
-    </div>
+    <p>For more information, reach out to us at:</p>
+    <ul>
+        <li>Email: info@embraceproject.com</li>
+        <li>Phone: +123 456 7890</li>
+        <li>Address: 123 Embrace St., Wellness City, Wellbeing Country</li>
+    </ul>
 </div>
-
-
-<footer style="background-color: #075e54; color: white; text-align: center; padding: 10px; position: relative; bottom: 0; width: 100%;">
-    <p>© 2024 Research Project. All Rights Reserved.</p>
-</footer>
-
 
 <script>
-    document.querySelectorAll('header a').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
-        });
-    });
+    let slideIndex = 1;
+    showSlides(slideIndex);
+
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+        let i;
+        let slides = document.getElementsByClassName("slides");
+        let dots = document.getElementsByClassName("dot");
+        if (n > slides.length) {slideIndex = 1}    
+        if (n < 1) {slideIndex = slides.length}
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";  
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active-dot", "");
+        }
+        slides[slideIndex-1].style.display = "block";  
+        dots[slideIndex-1].className += " active-dot";
+    }
 </script>
 
 </body>
